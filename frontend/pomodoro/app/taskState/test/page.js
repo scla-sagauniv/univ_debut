@@ -16,6 +16,10 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import SortableContainer from "./SortableContainer";
 import Item from "./Item";
+import Header from "../../../components/Header";
+
+// 汚いコードでごめんなさい まる
+
 
 const Contaienr = () => {
   // ドラッグ&ドロップでソート可能なリスト
@@ -68,19 +72,9 @@ const Contaienr = () => {
     })
   );
 
-  // 各コンテナ取得関数
-  // const findContainer = (id) => {
-  //   if (id in items) {
-  //     return id;
-  //   }
-  //   return Object.keys(items).find((key) =>
-  //     items[key].includes(id)
-  //   );
-  // };
-
+  // どのコンテナに居るのか取得する関数
   const findContainer = (id) => {
     const containerKeys = Object.keys(items);
-    console.log(items[containerKeys]);
     for (const key of containerKeys) {
       const container = items[key];
       const foundItem = container.find((item) => item.id === id);
@@ -88,6 +82,9 @@ const Contaienr = () => {
         return key.toString();
       }
     }
+    // どこかのcontainerがnullだった場合、containerが出力されないので、
+    // 全部見つからなかったら空のcontainerを返す
+
     for (const key of containerKeys) {
       if (0 === items[key].length) {
         return key.toString();
@@ -120,7 +117,6 @@ const Contaienr = () => {
 
     // ドラッグ、ドロップ時のコンテナ取得
     // container1,container2,container3のいずれかを持つ
-    // overContainerはcontainerの中が空の場合にnullになるから直接指定
     const activeContainer = findContainer(active.id);
     const overContainer = findContainer(over.id);
 
@@ -167,7 +163,8 @@ const Contaienr = () => {
   
           newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
         }
-  
+        
+        // 移動元の配列と移動先の配列の状態を反映したprevをreturnしてsetItemsに渡す
         return {
           ...prev,
           [activeContainer]: [
@@ -201,6 +198,7 @@ const Contaienr = () => {
     const activeIndex = items[activeContainer].findIndex((item) => item.id === id);
     const overIndex = items[overContainer].findIndex((item) => item.id === overId);
 
+    // ドロップ時にリストの要素をとっかえひっかえのアレコレ
     if (activeIndex !== overIndex) {
       setItems((items) => ({
         ...items,
@@ -214,8 +212,7 @@ const Contaienr = () => {
     setActiveId(undefined);
   };
 
-  console.log(items["container1"].findIndex((item) => item.id === 2));
-
+  // itemsの状態確認用、idを返す
   const list1 = items.container1.map((item) => item.id);
   const list2 = items.container2.map((item) => item.id);
   const list3 = items.container3.map((item) => item.id);
@@ -224,35 +221,42 @@ const Contaienr = () => {
   console.log(list2);
   console.log(list3);
   return (
-    <div className="flex flex-row mx-auto">
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCorners}
-        onDragStart={handleDragStart}
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-      >
-        {/* SortableContainer */}
+    <main className="">
+      <Header />
+      <div className="container">
+        <h1 className='issue-title'>ISSUEリスト</h1>
+        <div className="issue-container">
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCorners}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDragEnd={handleDragEnd}
+          >
+            {/* SortableContainer */}
+            
 
-        <SortableContainer
-          id="container1"
-          label="container1"
-          items={items.container1}
-        />
-        <SortableContainer
-          id="container2"
-          label="container2"
-          items={items.container2}
-        />
-        <SortableContainer
-          id="container3"
-          label="container3"
-          items={items.container3}
-        />
-        {/* DragOverlay */}
-        <DragOverlay>{activeId ? <Item id={activeId} /> : null}</DragOverlay>
-      </DndContext>
-    </div>
+            <SortableContainer
+              id="container1"
+              label="ToDo"
+              items={items.container1}
+            />
+            <SortableContainer
+              id="container2"
+              label="Doing"
+              items={items.container2}
+            />
+            <SortableContainer
+              id="container3"
+              label="Done"
+              items={items.container3}
+            />
+            {/* DragOverlay */}
+            <DragOverlay>{activeId ? <Item id={activeId} /> : null}</DragOverlay>
+          </DndContext>
+        </div>
+      </div>
+    </main>
   );
 };
 

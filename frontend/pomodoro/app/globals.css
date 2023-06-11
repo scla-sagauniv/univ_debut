@@ -56,14 +56,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   margin-top: 25px;
 }
 .issue-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 0 20px;
   padding: 5px;
   width: 33.3%;
