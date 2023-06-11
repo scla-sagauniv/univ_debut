@@ -1,0 +1,23 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./frontend/pomodoro
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: frontend-nextjs
+    volumes:
+      - ./frontend/pomodoro:/usr/src/app
+    command: npm run dev
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    container_name: backend-flask
+    volumes:
+      - ./backend:/usr/src/app
+    command: flask run --host=0.0.0.0
