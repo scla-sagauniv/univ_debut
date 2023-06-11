@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Headerコンポーネント */
 .header-container {
   display: flex;
   flex-direction: row;
@@ -36,5 +37,37 @@
   width: 50px;
   height: 50px; 
 }
+
+/* taskStateページ */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 200px;
+}
+.issue-title {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4.8rem;
+  margin: 30px 0 0 0;
+}
+.issue-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 25px;
+}
+.issue-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+  padding: 5px;
+  width: 33.3%;
+}
+
 
 
