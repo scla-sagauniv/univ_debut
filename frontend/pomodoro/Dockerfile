@@ -1,4 +1,4 @@
-FROM node:14.17.4-alpine
+FROM node:16.20.0-alpine
 
 WORKDIR /usr/src/app/frontend/pomodoro
 
