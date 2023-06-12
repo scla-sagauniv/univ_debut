@@ -59,12 +59,18 @@
   width: 100%;
   margin-top: 25px;
 }
+.issue-title-container {
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid #4E4E4E;
+  border-radius: 32px;
+}
 .issue-item {
   display: flex;
   flex-direction: column;
   margin: 0 20px;
   padding: 5px;
-  width: 33.3%;
+  width: 400px;
 }
 
 
