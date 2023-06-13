@@ -29,9 +29,11 @@ const SortableContainer = ({ id, items, label }) => {
           <div className={`issue-title-container ${titleStyle}`}>
             <h3 className="text-xl font-bold text-center">{label}</h3>
           </div>
-          {items.map((id) => (
-            <SortableItem key={id.id} id={id.id} name={id.name} />
-          ))}
+          <div className="items-container">
+            {items.map((id) => (
+              <SortableItem key={id.id} id={id.id} name={id.name} />
+            ))}
+          </div>
         </div>
       </SortableContext>
     </div>

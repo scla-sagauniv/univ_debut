@@ -16,6 +16,7 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import SortableContainer from "./SortableContainer";
 import Item from "./Item";
+import IssueForm from "./IssueForm";
 import Header from "../../components/Header";
 
 // 汚いコードでごめんなさい まる
@@ -141,18 +142,11 @@ const Contaienr = () => {
         // 移動先のコンテナの要素配列を取得
         const overItems = prev[overContainer];
 
-        console.log("activeItems is"+activeItems);
-        console.log("overItems is"+overItems);
-
         // 配列のインデックス取得
         const activeIndex = activeItems.findIndex((item) => item.id === id);
         const overIndex = overItems.findIndex((item) => item.id === overId);
 
-        console.log("activeIndex is"+activeIndex);
-        console.log("overIndex is"+overIndex);
-  
         let newIndex;
-        console.log("overId is"+overId);
         if (overId in prev[overContainer]) {
           // 下以外の要素にドロップした場合
           newIndex = overItems.length + 1;
@@ -227,6 +221,9 @@ const Contaienr = () => {
       <Header />
       <div className="container">
         <h1 className='issue-title'>ISSUEリスト</h1>
+        <div className="issue-form">
+          <IssueForm />
+        </div>
         <div className="issue-container">
           <DndContext
             sensors={sensors}
