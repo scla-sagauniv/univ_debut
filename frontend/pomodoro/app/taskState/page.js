@@ -74,6 +74,16 @@ const Contaienr = () => {
 
   // どのコンテナに居るのか取得する関数
   const findContainer = (id) => {
+    // もしコンテナの中にidが無い時でもitemsの中にidがあればそれを返す
+    // これをしないとドラッグしたリソースがコンテナの中に無い時にエラーが出る。
+    // どういう理屈で動いてるのか確実にはわからないが、
+    // 恐らくこの関数でコンテナの中にidが無い時に、event.over.idが出力される時間が少し遅れるので
+    // とりあえず、idを返して無限ループさせて時間を稼ぐためにやっていると考えている。
+
+    if (id in items) {
+      return id;
+    }
+
     const containerKeys = Object.keys(items);
     for (const key of containerKeys) {
       const container = items[key];
@@ -82,15 +92,6 @@ const Contaienr = () => {
         return key.toString();
       }
     }
-    // どこかのcontainerがnullだった場合、containerが出力されないので、
-    // 全部見つからなかったら空のcontainerを返す
-
-    for (const key of containerKeys) {
-      if (0 === items[key].length) {
-        return key.toString();
-      }
-    }
-    return null;
   };
 
   // ドラッグ開始時に発火する関数
@@ -111,14 +112,14 @@ const Contaienr = () => {
 
     console.log(event);
     console.log(id);
-    console.log(overId);
+    console.log("aaa"+over?.id);
 
     if (!overId) return;
 
     // ドラッグ、ドロップ時のコンテナ取得
     // container1,container2,container3のいずれかを持つ
-    const activeContainer = findContainer(active.id);
-    const overContainer = findContainer(over.id);
+    const activeContainer = findContainer(id);
+    const overContainer = findContainer(over?.id);
 
     console.log("activeContainer is"+activeContainer);
     console.log("overContainer is"+overContainer);
@@ -220,7 +221,7 @@ const Contaienr = () => {
   console.log(list1);
   console.log(list2);
   console.log(list3);
-  
+
   return (
     <main className="">
       <Header />
@@ -236,7 +237,6 @@ const Contaienr = () => {
           >
             {/* SortableContainer */}
             
-
             <SortableContainer
               id="container1"
               label="ToDo"
