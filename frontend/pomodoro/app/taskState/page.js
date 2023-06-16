@@ -22,8 +22,9 @@ import Header from "../../components/Header";
 // 汚いコードでごめんなさい まる
 
 
-const Contaienr = () => {
+const Container = () => {
   // ドラッグ&ドロップでソート可能なリスト
+  
   const [items, setItems] = useState({
     container1: [{
       id: 1,
@@ -258,4 +259,4 @@ const Contaienr = () => {
   );
 };
 
-export default Contaienr;
+export default Container;
