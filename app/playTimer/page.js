@@ -25,7 +25,7 @@ const PlayTimer = () => {
         <Timer />
       </div>
       <div className="flex justify-center">
-        <div className="w-1/3 bg-gray-200 m-2 p-2 rounded">
+        <div className="w-4/7 bg-gray-200 m-2 p-2 rounded" >
           <h2>現状</h2>
           - 分からないところが分かっている
           <p>- 分からないところが分からない</p>
