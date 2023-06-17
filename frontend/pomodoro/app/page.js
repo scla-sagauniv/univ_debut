@@ -1,7 +1,8 @@
 "use client"  
 import Header from '../components/Header'
+import Button from '../components/Button'
 import { useState, useEffect } from 'react'
-import Startbutton from '../components/Startbutton'
+
 
 const Home = () => {
   const [name, setName] = useState("")
@@ -16,8 +17,7 @@ const Home = () => {
   return (
     <main className="">
       <Header/>
-      <Startbutton/>
-      <h1>aaa:{name}</h1>
+      <Button/>
     </main>
   )
 }
