@@ -45,18 +45,18 @@ const second = time - minute * 60;
     </h2>
     <div className="flex justify-center mt-4 my-3">
       {run ? (
-        <button className='bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1'
-          onClick={Stop}
-        >
-          ストップ
-        </button>
+          <button className='bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1 bb'
+            onClick={Stop}
+          >
+            ストップ
+          </button>
       ) : (
         <button
-          onClick={Start} className="bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1"
+          onClick={Start} className="bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1 bb"
         >
           スタート
         </button>
-      )}  <button className='bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1'
+      )}  <button className='bg-[#75533C] hover:bg-[#AF9268] text-white font-bold py-2 px-4 rounded m-1 bb'
       onClick={Reset}
     >
       リセット

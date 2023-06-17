@@ -41,18 +41,18 @@ const PlayTimer = () => {
           <div className="flex first-line:"><span>&#128161;</span><h2>悩みから得られる仮説</h2></div>
           <input
             type="text"
-            className='mb-5 w-full rounded'
+            className=' w-full rounded'
             value={inputValue}
             onChange={handleInputChange}
             onKeyPress={handleEnterKey}
           />
           <div>
             {hypotheses.map((hypothesis, index) => (
-              <p key={index}>{hypothesis}</p>
+              <li key={index}>{hypothesis}</li>
             ))}
           </div>
-          <div className="flex first-line:"><span>&#10004;</span>
-          <h2>仮説から得られた結論</h2></div>
+          <div className="flex first-line:"><span className='mt-8'>&#10004;</span>
+          <h2 className='mt-8'>仮説から得られた結論</h2></div>
           <input className='mb-5 w-full rounded'></input>
         </div>
         
