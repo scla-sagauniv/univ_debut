@@ -25,16 +25,22 @@ const PlayTimer = () => {
         <Timer />
       </div>
       <div className="flex justify-center">
-        <div className="w-4/7 bg-gray-200 m-2 p-2 rounded" >
-          <h2>現状</h2>
-          - 分からないところが分かっている
-          <p>- 分からないところが分からない</p>
-          <p>- 分からないところが分からない状況を何とかする術を知らない</p>
-          <h2>悩んでいること</h2>
-          <input></input>
+        <div className=" bg-gray-200 m-2 p-2 rounded" >
+          
+          <div className="flex first-line:"><span>&#128204;</span>
+          <h2>現状</h2></div>
+          <input type="checkbox" ></input>
+           <p  className="inline">分からないところが分かっている</p><div></div>
+           <input type="checkbox" ></input>
+           <p className="inline">分からないところが分からない</p><div></div>
+           <input type="checkbox" ></input>
+          <p className="inline">分からないところが分からない状況を何とかする術を知らない</p>
+          <div className="flex first-line:">
+          <span>&#129300;</span><h2>悩んでいること</h2> </div>
+          <input className='mb-5 w-full'></input>
           <h2>悩みから得られる仮説</h2>
           <input
-            type="text"
+            type="text "
             value={inputValue}
             onChange={handleInputChange}
             onKeyPress={handleEnterKey}
@@ -47,6 +53,7 @@ const PlayTimer = () => {
           <h2>仮説から得られた結論</h2>
           <input></input>
         </div>
+        
       </div>
     </main>
   );
