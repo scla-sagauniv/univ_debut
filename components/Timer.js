@@ -30,6 +30,10 @@ const Timer = () => {
   const Stop = () => {
     setRun(false);
   };
+  const Reset = () => {
+    setTime(900);
+    setRun(false);
+  };
 const minute = Math.floor(time / 60);
 const second = time - minute * 60;
   return (
@@ -50,7 +54,11 @@ const second = time - minute * 60;
         >
           スタート
         </button>
-      )}
+      )}  <button
+      onClick={Reset}
+    >
+      リセット
+    </button>
     </div>
   </div>
   );
