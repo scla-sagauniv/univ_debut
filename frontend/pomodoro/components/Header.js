@@ -8,13 +8,13 @@ const Header = () => {
     <header className="header-container">
       <h1 className="header-title">ふるどけいさんのポモドーロタイマー</h1>
       <div className="header-auth">
-        <div className="header-logout">
-          <a className="logout-button" onClick={() => logout()}>ログアウト</a>
-        </div>
-        <div className="header-icons">
+        {/* <div className="header-logout"> */}
+          {/* <a className="logout-button" onClick={() => logout()}>ログアウト</a> */}
+        {/* </div> */}
+        {/* <div className="header-icons"> */}
           {/* faviconをアイコンにする */}
-          <img className="header-icon" src="/favicon.ico" alt="icon" />
-        </div>
+          {/* <img className="header-icon" src="/favicon.ico" alt="icon" /> */}
+        {/* </div> */}
       </div>
     </header>
   );
