@@ -2,32 +2,65 @@
 import { useState, useEffect } from 'react';
 
 const Timer = () => {
-  const [time, setTime] = useState(900); // 初期値は900秒 (15分)
-
+  const [time, setTime] = useState(900);
+  const [run, setRun] = useState(false);
   useEffect(() => {
-    const countDownTimer = setInterval(() => {
-      setTime(prevTime => {
-        if (prevTime === 0) {
-          clearInterval(countDownTimer);
+    let countDown;
+    if(run){
+    countDown = setInterval(() => {
+      setTime(Time => {
+        if (Time === 0) {
+          clearInterval(countDown);
           alert('タイマーが終了しました');
-          return prevTime;
+          return Time;
         }
-        return prevTime - 1;
+        return Time - 1;
       });
     }, 1000);
-
+  }
     return () => {
-      clearInterval(countDownTimer);
+      clearInterval(countDown);
     };
-  }, []);
-
-  const minuteCount = Math.floor(time / 60);
-  const secondCount = time - minuteCount * 60;
-
+  }, [run]);
+  
+  const Start = () => {
+    setRun(true);
+  };
+  
+  const Stop = () => {
+    setRun(false);
+  };
+  const Reset = () => {
+    setTime(900);
+    setRun(false);
+  };
+const minute = Math.floor(time / 60);
+const second = time - minute * 60;
   return (
     <div>
-      <h2 style={{ fontSize: '2rem' }}>タイマー: {minuteCount}分 {secondCount}秒</h2>
+    <h2 style={{ fontSize: '2rem' }}>
+      {minute}分 {second}秒
+    </h2>
+    <div className="flex justify-center mt-4">
+      {run ? (
+        <button
+          onClick={Stop}
+        >
+          ストップ
+        </button>
+      ) : (
+        <button
+          onClick={Start}
+        >
+          スタート
+        </button>
+      )}  <button
+      onClick={Reset}
+    >
+      リセット
+    </button>
     </div>
+  </div>
   );
 };
 
