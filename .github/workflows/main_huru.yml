@@ -23,7 +23,7 @@ jobs:
       
       - name: move to pomodoro
         run: |
-          cd /frontend/pomodoro
+          cd frontend/pomodoro
 
       - name: npm install, build, and test
         run: |
