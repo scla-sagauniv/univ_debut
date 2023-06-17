@@ -1,8 +1,12 @@
 
+import React from 'react'
+import Header from '/components/Header';
+
 const Login = () => {
   return (
-    <main className="login button">
-      <div>ログイン</div>
+    <main className="">
+      <Header/>
+      <h1>bbb</h1>
     </main>
   )
 }
