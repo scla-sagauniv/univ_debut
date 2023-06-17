@@ -2,7 +2,7 @@ import React from 'react';
 const Button = () => {
   return (
     <div className="login button">
-      <h3 className="font-black"><font font size="7">ログイン</font></h3>
+      <h3 className="font-black text-3xl">ログイン</h3>
       <p>
         <input type="id" className="bg-[#E0DCD1] m-1"  placeholder="user name" ></input> </p>
       
