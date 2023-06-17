@@ -25,22 +25,23 @@ const PlayTimer = () => {
         <Timer />
       </div>
       <div className="flex justify-center">
-        <div className=" bg-gray-200 m-2 p-2 rounded" >
-          
+        <div className=" bg-gray-200  rounded p-12" >
+          <h1 className='flex justify-center text-4xl mb-4'> タイトル</h1>
           <div className="flex first-line:"><span>&#128204;</span>
           <h2>現状</h2></div>
-          <input type="checkbox" ></input>
-           <p  className="inline">分からないところが分かっている</p><div></div>
-           <input type="checkbox" ></input>
-           <p className="inline">分からないところが分からない</p><div></div>
-           <input type="checkbox" ></input>
-          <p className="inline">分からないところが分からない状況を何とかする術を知らない</p>
-          <div className="flex first-line:">
+          <input type="radio" name='check'></input>
+           <p  className="inline m-2">分からないところが分かっている</p><div></div>
+           <input type="radio" name='check'></input>
+           <p className="inline m-2">分からないところが分からない</p><div></div>
+           <input type="radio" name='check' ></input>
+          <p className="inline m-2">分からないところが分からない状況を何とかする術を知らない</p>
+          <div className="flex first-line rounded mt-2">
           <span>&#129300;</span><h2>悩んでいること</h2> </div>
-          <input className='mb-5 w-full'></input>
-          <h2>悩みから得られる仮説</h2>
+          <input className='mb-5 w-full rounded'></input>
+          <div className="flex first-line:"><span>&#128161;</span><h2>悩みから得られる仮説</h2></div>
           <input
-            type="text "
+            type="text"
+            className='mb-5 w-full rounded'
             value={inputValue}
             onChange={handleInputChange}
             onKeyPress={handleEnterKey}
@@ -50,8 +51,9 @@ const PlayTimer = () => {
               <p key={index}>{hypothesis}</p>
             ))}
           </div>
-          <h2>仮説から得られた結論</h2>
-          <input></input>
+          <div className="flex first-line:"><span>&#10004;</span>
+          <h2>仮説から得られた結論</h2></div>
+          <input className='mb-5 w-full rounded'></input>
         </div>
         
       </div>
