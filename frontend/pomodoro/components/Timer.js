@@ -26,7 +26,7 @@ const Timer = () => {
 
   return (
     <div>
-      <h2>タイマー: {minuteCount}分 {secondCount}秒</h2>
+      <h2 style={{ fontSize: '2rem' }}>タイマー: {minuteCount}分 {secondCount}秒</h2>
     </div>
   );
 };
