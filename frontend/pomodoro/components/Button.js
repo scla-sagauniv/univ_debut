@@ -6,6 +6,7 @@ const Button = () => {
       <p>
         <input type="id" className="bg-[#E0DCD1] m-1"  placeholder="user name" ></input> </p>
       
+
         
         <input type="id" className="bg-[#E0DCD1] m-1"  placeholder="password" ></input> 
         
@@ -19,5 +20,3 @@ const Button = () => {
   );
 }
 export default Button
-
-
