@@ -91,3 +91,6 @@
   display: flex;
   text-align: center;
 }
+.bb:hover{
+  transition: all 0.3s ease;
+}
