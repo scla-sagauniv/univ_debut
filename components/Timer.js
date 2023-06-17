@@ -3,30 +3,30 @@ import { useState, useEffect } from 'react';
 
 const Timer = () => {
   const [time, setTime] = useState(900); // 初期値は900秒 (15分)
-
+  const [Run, setRun] = useState(false);
   useEffect(() => {
-    const countDownTimer = setInterval(() => {
-      setTime(prevTime => {
-        if (prevTime === 0) {
-          clearInterval(countDownTimer);
+    const countDown = setInterval(() => {
+      setTime(Time => {
+        if (Time === 0) {
+          clearInterval(countDown);
           alert('タイマーが終了しました');
-          return prevTime;
+          return Time;
         }
-        return prevTime - 1;
+        return Time - 1;
       });
     }, 1000);
 
     return () => {
-      clearInterval(countDownTimer);
+      clearInterval(countDown);
     };
   }, []);
 
-  const minuteCount = Math.floor(time / 60);
-  const secondCount = time - minuteCount * 60;
+  const minute = Math.floor(time / 60);
+  const second = time - minute * 60;
 
   return (
     <div>
-      <h2 style={{ fontSize: '2rem' }}>タイマー: {minuteCount}分 {secondCount}秒</h2>
+      <h2 style={{ fontSize: '2rem' }}> {minute}分 {second}秒</h2>
     </div>
   );
 };
