@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 const Timer = () => {
   const [time, setTime] = useState(900);
   const [run, setRun] = useState(false);
+  const [timerclass, setTimerclass] = useState('');
   useEffect(() => {
     let countDown;
+    // let timerClassname = '';
     if(run){
     countDown = setInterval(() => {
       setTime(Time => {
@@ -17,6 +19,9 @@ const Timer = () => {
         return Time - 1;
       });
     }, 1000);
+    // timerClassname = 'mm';
+  } else {
+    // timerClassname = '';
   }
     return () => {
       clearInterval(countDown);
@@ -25,10 +30,12 @@ const Timer = () => {
   
   const Start = () => {
     setRun(true);
+    setTimerclass('mm')
   };
   
   const Stop = () => {
     setRun(false);
+    setTimerclass('')
   };
   const Reset = () => {
     setTime(900);
@@ -36,9 +43,10 @@ const Timer = () => {
   };
 const minute = Math.floor(time / 60);
 const second = time - minute * 60;
-  return (
+const timer = 'justify-center flex ' + run ? 'mm' : '' ;
+return (
     <div className='flex justify-center'>
-    <div className='justify-center flex'><img  src="image.png" className='w-24 h-2/3 my-6 ' /></div>
+    <div className={timerclass}><img  src="image.png" className='w-24 h-2/3 my-6 ' /></div>
     <div>
     <h2 style={{ fontSize: '3rem' }} className='justify-center items-center my-8'>
       {minute}分 {second}秒
@@ -63,7 +71,7 @@ const second = time - minute * 60;
     </button>
     </div>
   </div>
-  <div className='justify-center flex'><img  src="image.png" className='w-24 h-2/3 justify-center flex my-6' /></div>
+  <div className={timerclass}><img  src="image.png" className='w-24 h-2/3 justify-center flex my-6 ' /></div>
   </div>
   );
 };
