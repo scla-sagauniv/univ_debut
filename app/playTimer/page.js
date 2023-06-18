@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import Header from '/components/Header';
 import Timer from '/components/Timer';
+import { useRouter } from 'next/navigation';
 
 const PlayTimer = () => {
   const [inputValue, setInputValue] = useState('');
   const [hypotheses, setHypotheses] = useState([]);
+  const router = useRouter();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -17,6 +19,11 @@ const PlayTimer = () => {
       setInputValue('');
     }
   };
+  const Update = (event) => {
+    // taskStateにページ遷移する処理を実装
+    router.push('/taskState');
+  };
+
 
   return (
     <main>
@@ -30,10 +37,10 @@ const PlayTimer = () => {
           <div className="flex first-line:"><span>&#128204;</span>
           <h2>現状</h2></div>
           <input type="radio" name='check'></input>
-           <p  className="inline m-2">分からないところが分かっている</p><div></div>
-           <input type="radio" name='check'></input>
-           <p className="inline m-2">分からないところが分からない</p><div></div>
-           <input type="radio" name='check' ></input>
+          <p  className="inline m-2">分からないところが分かっている</p><div></div>
+          <input type="radio" name='check'></input>
+          <p className="inline m-2">分からないところが分からない</p><div></div>
+          <input type="radio" name='check' ></input>
           <p className="inline m-2">分からないところが分からない状況を何とかする術を知らない</p>
           <div className="flex first-line rounded mt-2">
           <span>&#129300;</span><h2>悩んでいること</h2> </div>
@@ -54,6 +61,7 @@ const PlayTimer = () => {
           <div className="flex first-line:"><span className='mt-8'>&#10004;</span>
           <h2 className='mt-8'>仮説から得られた結論</h2></div>
           <input className='mb-5 w-full rounded'></input>
+          <button classNmme=''onClick={Update}>更新</button>
         </div>
         
       </div>
