@@ -30,10 +30,10 @@ const PlayTimer = () => {
           <div className="flex first-line:"><span>&#128204;</span>
           <h2>現状</h2></div>
           <input type="radio" name='check'></input>
-           <p  className="inline m-2">分からないところが分かっている</p><div></div>
-           <input type="radio" name='check'></input>
-           <p className="inline m-2">分からないところが分からない</p><div></div>
-           <input type="radio" name='check' ></input>
+          <p  className="inline m-2">分からないところが分かっている</p><div></div>
+          <input type="radio" name='check'></input>
+          <p className="inline m-2">分からないところが分からない</p><div></div>
+          <input type="radio" name='check' ></input>
           <p className="inline m-2">分からないところが分からない状況を何とかする術を知らない</p>
           <div className="flex first-line rounded mt-2">
           <span>&#129300;</span><h2>悩んでいること</h2> </div>
