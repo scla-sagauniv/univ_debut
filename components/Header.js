@@ -6,7 +6,7 @@ const Header = () => {
   }
   return (
     <header className="header-container">
-      <h1 className="header-title">ふるどけいさんのポモドーロタイマー</h1>
+      <h1 className="header-title flex justify-center">ふるどけいさんのポモドーロタイマー</h1>
       <div className="header-auth">
         {/* <div className="header-logout"> */}
           {/* <a className="logout-button" onClick={() => logout()}>ログアウト</a> */}
